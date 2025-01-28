@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('book_keeping', function (Blueprint $table) {
+        Schema::create('book_keepings', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->text('note');
             $table->bigInteger('debit')->default(0);
@@ -24,6 +24,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('book_keeping');
+        Schema::dropIfExists('book_keepings');
     }
 };

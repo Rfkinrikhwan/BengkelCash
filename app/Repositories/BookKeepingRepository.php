@@ -44,13 +44,9 @@ class BookKeepingRepository implements BookKeepingInterface
         $orderDirection = isset($params['ascending']) && $params['ascending'] == 0 ? 'ASC' : 'DESC';
         $data->orderBy($orderField, $orderDirection);
 
-        $totalSaldo = $data->orderBy('date', 'DESC')->value('saldo');
         $result = $data->paginate($params['limit'] ?? 25);
 
-        return [
-            'data' => $result,
-            'meta' => ['total_saldo' => $totalSaldo]
-        ];
+        return $result;
     }
 
     public function store(array $attributes)
